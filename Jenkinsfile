@@ -8,8 +8,10 @@ pipeline {
     }
     stages {
         stage("init") {
-            script {
-                gv = load "script.groovy"
+            steps {
+                script {
+                    gv = load "script.groovy"                
+                }
             }
         }
         stage("build") {
@@ -28,7 +30,9 @@ pipeline {
         }
         stage("deploy") {
             steps {
-                echo "deploying the application..."
+                script {
+                    gv.deployApp();
+                }
             }
         }
     }
