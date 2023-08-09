@@ -20,11 +20,6 @@ pipeline {
             }
         }
         stage("test") {
-            when {
-                expression {
-                    param.executeTests
-                }
-            }
             steps {
                 script {
                     gv.testApp()
@@ -33,9 +28,7 @@ pipeline {
         }
         stage("deploy") {
             steps {
-                script {
-                    gv.deployApp()
-                }
+                echo "deploying the application..."
             }
         }
     }
