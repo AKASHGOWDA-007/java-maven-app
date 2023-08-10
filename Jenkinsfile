@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     gv = load "script.groovy"
-                    sh "Testing the integration of web hook with jenkins"
+                    echo "Testing the integration of web hook with jenkins"
                 }
             }
         }
